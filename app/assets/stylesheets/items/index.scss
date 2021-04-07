@@ -223,6 +223,9 @@ a {
   padding: 10vh 0;
 }
 
+// 付け足し
+// ul,liに着目
+
 .item-contents>.title {
   font-size: 5vh;
   line-height: 1.4;
@@ -245,7 +248,7 @@ a {
 }
 
 .item-lists>.list {
-  width: 37vh;
+  width: 20vh;
   padding: 1vw;
   background-color: #FFF;
 }
@@ -256,8 +259,8 @@ a {
 }
 
 .item-img {
-  width: 33vh;
-  height: 33vh;
+  width: 15vh;
+  height: 15vh;
 }
 
 .sold-out {

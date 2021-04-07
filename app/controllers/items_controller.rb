@@ -1,6 +1,15 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.includes(:corporation).order('created_at DESC')
+    @vegetable = Item.where(category_id: 2)
+    @meat = Item.where(category_id: 3)
+    @fish = Item.where(category_id: 4)
+    @fruit = Item.where(category_id: 5)
+    @milk = Item.where(category_id: 6)
+    @snack = Item.where(category_id: 7)
+    @souzai = Item.where(category_id: 8)
+    @drink = Item.where(category_id: 9)
+    @other = Item.where(category_id: 10)
   end
 
   def new
