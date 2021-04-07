@@ -16,4 +16,6 @@ class Customer < ApplicationRecord
     
   end
   validates :password, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/ }
+
+  has_many :items
 end
