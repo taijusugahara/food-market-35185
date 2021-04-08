@@ -29,8 +29,30 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
   end
-  private
+  
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+
+      render :edit
+
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path
+  
+  end
+  private
   def item_params
     params.require(:item).permit(:image, :name, :category_id, 
                                 :price, :number).merge(corporation_id: current_corporation.id)
