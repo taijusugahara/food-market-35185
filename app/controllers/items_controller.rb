@@ -58,4 +58,5 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :category_id, 
                                 :price, :number).merge(corporation_id: current_corporation.id)
   end
+
 end

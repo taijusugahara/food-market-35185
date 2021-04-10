@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 2021_04_08_025327) do
   end
 
   create_table "carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_carts_on_customer_id"
   end
 
   create_table "corporations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,7 +71,7 @@ ActiveRecord::Schema.define(version: 2021_04_08_025327) do
   end
 
   create_table "item_carts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "quantity", default: 0
+    t.integer "quantity"
     t.bigint "item_id"
     t.bigint "cart_id"
     t.datetime "created_at", precision: 6, null: false
@@ -92,6 +94,7 @@ ActiveRecord::Schema.define(version: 2021_04_08_025327) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "carts", "customers"
   add_foreign_key "item_carts", "carts"
   add_foreign_key "item_carts", "items"
   add_foreign_key "items", "corporations"

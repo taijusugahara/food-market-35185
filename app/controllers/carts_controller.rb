@@ -1,34 +1,27 @@
 class CartsController < ApplicationController
-  before_action :setup_cart_item!, only: [:add_item, :update_item, :delete_item]
-  def show
-    @cart_items = current_cart.item_carts
+
+  def new
+
+    @items = Item.all
+    @cart = Cart.new
+
   end
 
-  def add_item
-    
-    if @cart_item.blank?
-      @cart_item = current_cart.item_carts.build(item_id: params[:item_id])
+  def create
+    @cart = Cart.new(cart_params)
+    if @cart.save
+      redirect_to root_path
+    else
+      render
     end
 
-    @cart_item.quantity += params[:quantity].to_i
-    @cart_item.save
-    @cart = session[:cart_id]
-    redirect_to cart_path(@cart)
   end
 
-  def update_item
-    @cart_item.update(quantity: params[:quantity].to_i)
-    redirect_to ''
-  end
-
-  def delete_item
-    @cart_item.destroy
-    redirect_to ''
-  end
 
   private
-
-  def setup_cart_item!
-    @cart_item = current_cart.item_carts.find_by(item_id: params[:item_id])
+  def cart_params
+    params.require(:cart).permit(:quantity, item_ids: []).merge(customer_id: current_customer.id)
+    
+  
   end
 end

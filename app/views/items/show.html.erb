@@ -27,13 +27,7 @@
           <p class="or-text">or</p>
           <%= link_to "削除", item_path(@item), method: :delete, class:"item-destroy" %>
         <% end %>
-        <% if customer_signed_in? %>
-         <%= form_with url: "/add_item", method: :post, local: true do |f| %>
-          <%= hidden_field_tag :item_id, params[:id] %> 
-          <%= f.submit "カートに入れる" ,class:"item-red-btn" %>
-         <% end %>
-          <%# <%= link_to "カートに入れる", "/add_item", method: :post, class:"item-red-btn"%> 
-        <% end %>
+
 
 
     
