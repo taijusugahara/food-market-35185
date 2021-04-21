@@ -134,29 +134,24 @@
             <div><%= cart_item.item.price %>円<br> </div>
             
               
-            <div><%= cart_item.quantity %>個</div>
+             <div><%= cart_item.quantity %>個</div> 
 
-            <div>合計<%= cart_item.item.price * cart_item.quantity %>円</div>
-            <%# <%= form_with url: "/update_item", method: :post, local: true do |f| %>
-            <%# <%= f.number_field :quantity, placeholder:"例）2" %>
-            <%# <%= f.submit "編集" ,class:"item-red-btn" %> 
-            <%# <% end %> 
+            <div>合計<%= cart_item.item.price * cart_item.quantity %>円</div>  
+
+
             
-            <%# <%= hidden_field_tag :item_id, params[:cart_item.item.id] %>   
-            <%# <input name="cart[:item_id]" type="hidden" value=<%= cart_item.item.id %>
-          <%# <%= f.submit "削除" ,class:"item-red-btn" %> 
-          <%= link_to "編集・削除", item_path(cart_item.item.id) %>
-            <%# <%= link_to "編集", update_item_path, method: :post, quantity: cart_item.quantity, class: "item-red-btn" %> 
-        </div>
+          <%= link_to "変更・取り消し", item_path(cart_item.item.id) %>
+
+         
   </li>
   <% end %>
 </ul>
 <%# <% end %> 
-
+  <%= link_to "カートを空にする", carts_path, method: :delete %> 
 <div>
   <% sum = 0 %>
   お支払い金額
-  <% @cart_items.each do |cart_item| %>
+  <% @cart_items.each do |cart_item| %> 
   <% cart_item.item.price * cart_item.quantity %>
   <% sum += cart_item.item.price * cart_item.quantity %>
   <%end%>

@@ -29,6 +29,25 @@
         <% end %>
 
 
+        <% if customer_signed_in? %>
+            <%= form_with url: "/add_item", method: :post, local: true do |f| %>
+               <%= hidden_field_tag :item_id, params[:id] %>  
+              <div>
+              個数：
+               <%= f.number_field :quantity, class:"price-input", id:"item-price", placeholder:"例）2" %>
+              個
+              </div>
+              
+              <%= f.submit "カートに入れる" ,class:"item-red-btn" %>
+            <% end %>
+            <% if @item.item_carts %> 
+            <%= form_with url: "/delete_item", method: :delete, local: true do |f| %>
+              <%= hidden_field_tag :item_id, params[:id] %> 
+              <%= f.submit "削除する" %>
+            <% end %>
+            <% end %>
+        <% end %>
+
 
     
 
