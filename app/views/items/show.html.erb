@@ -27,8 +27,25 @@
           <p class="or-text">or</p>
           <%= link_to "削除", item_path(@item), method: :delete, class:"item-destroy" %>
         <% end %>
+
+
         <% if customer_signed_in? %>
-          <%= link_to "購入画面に進む", item_orders_path(@item) ,class:"item-red-btn"%>
+            <%= form_with url: "/add_item", method: :post, local: true do |f| %>
+               <%= hidden_field_tag :item_id, params[:id] %>  
+              <div>
+              個数：
+               <%= f.number_field :quantity, class:"price-input", id:"item-price", placeholder:"例）2" %>
+              個
+              </div>
+              
+              <%= f.submit "カートに入れる" ,class:"item-red-btn" %>
+            <% end %>
+            <% if @item.item_carts %> 
+            <%= form_with url: "/delete_item", method: :delete, local: true do |f| %>
+              <%= hidden_field_tag :item_id, params[:id] %> 
+              <%= f.submit "削除する" %>
+            <% end %>
+            <% end %>
         <% end %>
 
 

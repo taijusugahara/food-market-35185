@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @item_cart = Item.find(params[:id])
   end
   
 
@@ -57,4 +58,5 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :category_id, 
                                 :price, :number).merge(corporation_id: current_corporation.id)
   end
+
 end
