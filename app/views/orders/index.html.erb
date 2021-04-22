@@ -6,33 +6,30 @@
       購入内容の確認
     </h1>
     <%# 購入内容の表示 %>
-    <div class='buy-item-info'>
-      <%= image_tag @item.image, class: 'buy-item-img' %>
-      <div class='buy-item-right-content'>
-        <h2 class='buy-item-text'>
-          <%= @item.name%>
-        </h2>
-        <div class='buy-item-price'>
-          <p class='item-price-text'>¥<%= @item.price %></p>
-          <p class='item-price-sub-text'><%= @item.derivery_way.name %></p>
-        </div>
+   <div class='buy-item-info'>
+    <% @items.each do |item| %>
+      <%# <%= render partial: "item", locals: { item: item }%> 
+      <div>
+      <%= image_tag item.item.image, class: 'buy-item-img' %>
       </div>
-    </div>
+      <div>
+      <div> <%= item.item.name%> </div>
+      <div>¥<%= item.item.price%></div> 
+      <div><%= item.quantity%>個</div>
+      <div>合計<%= item.item.price * item.quantity %>円</div>
+      </div>
     <%# /購入内容の表示 %>
-
-    <%# 支払額の表示 %>
-    <div class='item-payment'>
-      <h1 class='item-payment-title'>
-        支払金額
-      </h1>
-      <p class='item-payment-price'>
-        ¥<%= @item.price %>
-      </p>
+    
+      <% end %>
     </div>
-    <%# /支払額の表示 %>
 
-    <%= form_with model: @order_address, url: item_orders_path(@item), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
-    <%= render 'shared/error_messages', model: @order_address %>
+    <div>
+  お支払い金額
+  <%= @sum %>
+  円
+</div>
+  <%= form_with model: @order, url: cart_orders_path(@cart), id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+   <%= render 'shared/error_messages', model: @order %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -121,8 +118,7 @@
         <%= f.text_field :tell_number, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
       </div>
     </div>
-    <%# /配送先の入力 %>
-    <div class='buy-btn'>
+   <div class='buy-btn'>
       <%= f.submit "購入" ,class:"buy-red-btn" %>
     </div>
     <% end %>

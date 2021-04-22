@@ -8,7 +8,7 @@
     <%= form_with model: @item, local: true do |f| %>
 
     
-    <%# <%= render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
     
 
   
@@ -57,14 +57,7 @@
           <span class="sell-yen">¥</span>
           <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
         </div>
-        <div class="price-content">
-          <div class="price-text">
-            <span>在庫</span>
-            <span class="indispensable">必須</span>
-          </div>
-          <span class="sell-yen"></span>
-          <%= f.text_field :number, class:"price-input", id:"item-number", placeholder:"例）10" %>
-        </div>
+       
       </div>
     </div>
     <br>
