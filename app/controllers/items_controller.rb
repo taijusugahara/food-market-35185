@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
     @souzai = Item.where(category_id: 8)
     @drink = Item.where(category_id: 9)
     @other = Item.where(category_id: 10)
+
   end
 
   def new
@@ -29,6 +30,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_cart = Item.find(params[:id])
+    @cart = current_cart
   end
   
 
@@ -56,7 +58,7 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(:image, :name, :category_id, 
-                                :price, :number).merge(corporation_id: current_corporation.id)
+                                :price).merge(corporation_id: current_corporation.id)
   end
 
 end

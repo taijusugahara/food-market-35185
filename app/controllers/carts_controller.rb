@@ -16,7 +16,7 @@ class CartsController < ApplicationController
     @cart_item.save
     # redirect_to current_cart
      @cart = session[:cart_id]
-    redirect_to carts_path(@cart)
+    redirect_to cart_path(@cart)
   end
 
   
@@ -24,7 +24,7 @@ class CartsController < ApplicationController
   def delete_item
     @cart_item.destroy
     @cart = session[:cart_id]
-    redirect_to carts_path(@cart)
+    redirect_to cart_path(@cart)
   end
 
   def destroy
@@ -37,5 +37,7 @@ class CartsController < ApplicationController
   def setup_cart_item!
     @cart_item = current_cart.item_carts.find_by(item_id:params[:item_id])
   end
+
+  
 end
 

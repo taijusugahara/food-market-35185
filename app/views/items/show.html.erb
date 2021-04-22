@@ -9,11 +9,7 @@
     <div class="item-img-content">
       <%= image_tag @item.image ,class:"item-box-img" %>
     </div>
-    <div class="item-price-box">
-      <span class="item-price">
-        残り<%= @item.number %>個
-      </span>
-    </div>
+    
     <div class="item-price-box">
       <span class="item-price">
         ¥<%= @item.price %>
@@ -40,12 +36,8 @@
               
               <%= f.submit "カートに入れる" ,class:"item-red-btn" %>
             <% end %>
-            <% if @item.item_carts %> 
-            <%= form_with url: "/delete_item", method: :delete, local: true do |f| %>
-              <%= hidden_field_tag :item_id, params[:id] %> 
-              <%= f.submit "削除する" %>
-            <% end %>
-            <% end %>
+            
+           
         <% end %>
 
 
