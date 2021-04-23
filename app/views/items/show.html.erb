@@ -30,7 +30,7 @@
                <%= hidden_field_tag :item_id, params[:id] %>  
               <div>
               個数：
-               <%= f.number_field :quantity, class:"price-input", id:"item-price", placeholder:"例）2" %>
+               <%= f.number_field :quantity, class:"price-input", min: 1, :value =>1, id:"item-price", placeholder:"例）2" %>
               個
               </div>
               

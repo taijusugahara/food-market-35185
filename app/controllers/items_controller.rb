@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_corporation!, except: [:index, :show]
   def index
     @items = Item.includes(:corporation).order('created_at DESC')
     @vegetable = Item.where(category_id: 2)
@@ -60,5 +61,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :name, :category_id, 
                                 :price).merge(corporation_id: current_corporation.id)
   end
+
+ 
 
 end

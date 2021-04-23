@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_customer!
+  before_action :move_to_cart_show
   def index
    @cart = current_cart
    @items= @cart.item_carts
@@ -49,5 +51,10 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def move_to_cart_show
+    @cart = current_cart
+    redirect_to cart_path(@cart) unless @cart.item_carts.length > 0
   end
 end
