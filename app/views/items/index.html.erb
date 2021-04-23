@@ -179,9 +179,9 @@
       <%= render partial: "item", locals: { item: item }%>
       <% end %>
     </ul>
-
-    <%= link_to "カートのページに行く", cart_path(current_cart.id)%>
-  
+    <% if customer_signed_in?%>
+    <%= link_to "カートのページに行く", cart_path(current_cart.id)%> 
+     <% end %>
 
     
    
