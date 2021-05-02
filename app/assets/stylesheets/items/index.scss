@@ -283,6 +283,9 @@ a {
   background-color: #FFF;
   color: black;
   padding: 1vw;
+  // display: flex;
+  // align-items: center;
+  // flex-direction: center;
 }
 
 .item-name {
@@ -291,8 +294,8 @@ a {
 
 .item-price {
   font-size: 1.5vh;
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
 }
 
 
