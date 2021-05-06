@@ -8,7 +8,7 @@ RSpec.describe "OrderAddresses", type: :system do
    
   end
 
-  context '商品をカートに追加'do
+  context 'カート内商品を購入'do
     it 'ログインした客はカートに入っている商品を購入できる' do
       # ログインする
       sign_in(@customer)

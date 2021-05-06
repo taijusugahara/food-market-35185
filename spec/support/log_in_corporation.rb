@@ -9,8 +9,8 @@ module LogInCorporation
     visit new_corporation_session_path
 
     # ログイン情報を入力する
-      fill_in 'corporation[email]', with: 'corporation@1.com'
-      fill_in 'corporation[password]', with: 'corporation'
+      fill_in 'corporation[email]', with: 'c@1.com'
+      fill_in 'corporation[password]', with: 'corpor'
     # ログインボタンを押す
     find('input[name="commit"]').click
     # トップページに移行する

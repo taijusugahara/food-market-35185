@@ -6,22 +6,24 @@
       購入内容の確認
     </h1>
     <%# 購入内容の表示 %>
-   <div class='buy-item-info'>
+   
     <% @items.each do |item| %>
       <%# <%= render partial: "item", locals: { item: item }%> 
-      <div>
-      <%= image_tag item.item.image, class: 'buy-item-img' %>
+    <div class='buy-item-info'>
+        <div>
+        <%= image_tag item.item.image, class: 'buy-item-img' %>
+        </div>
+        <div>
+          <div> <%= item.item.name%> </div>
+          <div>¥<%= item.item.price%></div> 
+          <div><%= item.quantity%>個</div>
+          <div>合計<%= item.item.price * item.quantity %>円</div>
+        </div>
+      
+  
       </div>
-      <div>
-      <div> <%= item.item.name%> </div>
-      <div>¥<%= item.item.price%></div> 
-      <div><%= item.quantity%>個</div>
-      <div>合計<%= item.item.price * item.quantity %>円</div>
-      </div>
-    <%# /購入内容の表示 %>
-    
       <% end %>
-    </div>
+    
 
     <div class="sum">
   お支払い金額
