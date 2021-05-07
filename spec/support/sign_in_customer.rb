@@ -13,14 +13,10 @@ module SignInCustomer
     # ログインボタンを押す
     find('input[name="commit"]').click
     # トップページに移行する
-    expect(current_path).to eq (root_path)
+    expect(current_path).to eq(root_path)
     # ログアウトボタンが表示される。新規登録・ログインボタンは表示されない。
-    expect(page).to have_content ('ログアウト')
-    expect(page).to have_no_content ('お客様新規登録')
-    expect(page).to have_no_content ('お客様ログイン')
+    expect(page).to have_content('ログアウト')
+    expect(page).to have_no_content('お客様新規登録')
+    expect(page).to have_no_content('お客様ログイン')
   end
 end
-
-
-
-

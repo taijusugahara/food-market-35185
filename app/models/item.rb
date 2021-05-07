@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :item_carts, dependent: :destroy
   with_options presence: true do
     validates :image, :name
-    with_options numericality: { greater_than_or_equal_to: 1} do
+    with_options numericality: { greater_than_or_equal_to: 1 } do
       validates :price
       with_options numericality: { other_than: 1 } do
         validates :category_id

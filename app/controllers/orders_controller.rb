@@ -2,46 +2,46 @@ class OrdersController < ApplicationController
   before_action :authenticate_customer!
   before_action :move_to_cart_show
   def index
-   @cart = current_cart
-   @items= @cart.item_carts
-   @order = OrderAddress.new
-   total_price
+    @cart = current_cart
+    @items = @cart.item_carts
+    @order = OrderAddress.new
+    total_price
   end
 
   def create
     @cart = current_cart
     @order = OrderAddress.new(order_params)
     total_price
-    
-    if@order.valid? 
+
+    if @order.valid?
       pay_item
       @order.save
       session[:cart_id] = nil
       redirect_to root_path
     else
       @cart = current_cart
-      @items= @cart.item_carts
+      @items = @cart.item_carts
       render :index
     end
   end
 
-
   private
+
   def order_params
-    
-    params.require(:order_address).permit(:postal_code, :prefecture_id, :town, :residence, :building, :tell_number).merge(customer_id: current_customer.id, cart_id: @cart.id, token: params[:token]
+    params.require(:order_address).permit(:postal_code, :prefecture_id, :town, :residence, :building, :tell_number).merge(
+      customer_id: current_customer.id, cart_id: @cart.id, token: params[:token]
     )
-  end 
+  end
 
   def total_price
-    @items= @cart.item_carts
+    @items = @cart.item_carts
 
-    sum = 0 
-   @items.each do |item|  
-   item.item.price * item.quantity 
-   sum += item.item.price * item.quantity 
-    @sum = sum
-   end
+    sum = 0
+    @items.each do |item|
+      item.item.price * item.quantity
+      sum += item.item.price * item.quantity
+      @sum = sum
+    end
   end
 
   def pay_item

@@ -11,14 +11,13 @@ class ItemsController < ApplicationController
     @souzai = Item.where(category_id: 8)
     @drink = Item.where(category_id: 9)
     @other = Item.where(category_id: 10)
-
   end
 
   def new
     @item = Item.new
   end
 
-  def create 
+  def create
     @item = Item.new(item_params)
 
     if @item.save
@@ -33,7 +32,6 @@ class ItemsController < ApplicationController
     @item_cart = Item.find(params[:id])
     @cart = current_cart
   end
-  
 
   def edit
     @item = Item.find(params[:id])
@@ -54,14 +52,12 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     redirect_to root_path
-  
   end
+
   private
+
   def item_params
-    params.require(:item).permit(:image, :name, :category_id, 
-                                :price).merge(corporation_id: current_corporation.id)
+    params.require(:item).permit(:image, :name, :category_id,
+                                 :price).merge(corporation_id: current_corporation.id)
   end
-
- 
-
 end

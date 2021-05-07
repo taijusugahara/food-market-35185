@@ -24,16 +24,11 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
 
-
       it 'category_idが1の時は出品できない' do
         @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
-
-      
-
-      
 
       it 'priceが空の時は出品できない' do
         @item.price = ''
@@ -44,24 +39,20 @@ RSpec.describe Item, type: :model do
       it 'priceが全角で入力される時は出品できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
 
       it 'priceが半角英語で入力される時は出品できない' do
         @item.price = 'abcdef'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not a number")
+        expect(@item.errors.full_messages).to include('Price is not a number')
       end
 
       it 'priceが0以下で入力される時は出品できない' do
         @item.price = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 1")
+        expect(@item.errors.full_messages).to include('Price must be greater than or equal to 1')
       end
-
-      
     end
   end
-
-
 end

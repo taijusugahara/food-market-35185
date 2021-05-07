@@ -16,29 +16,26 @@ RSpec.describe ItemCart, type: :model do
       it 'quantityが空であれば商品をカートに入れれない' do
         @item_cart.quantity = ''
         @item_cart.valid?
-        expect(@item_cart.errors.full_messages).to include("Quantity is not a number")
+        expect(@item_cart.errors.full_messages).to include('Quantity is not a number')
       end
 
       it 'quantityが0以下であれば商品をカートに入れれない' do
         @item_cart.quantity = 0
         @item_cart.valid?
-        expect(@item_cart.errors.full_messages).to include("Quantity must be greater than or equal to 1")
+        expect(@item_cart.errors.full_messages).to include('Quantity must be greater than or equal to 1')
       end
 
       it 'itemが結びついていなければ商品をカートに入れれない' do
         @item_cart.item = nil
         @item_cart.valid?
-        expect(@item_cart.errors.full_messages).to include("Item must exist")
+        expect(@item_cart.errors.full_messages).to include('Item must exist')
       end
 
       it 'cartが結びついていなければ商品をカートに入れれない' do
         @item_cart.cart = nil
         @item_cart.valid?
-        expect(@item_cart.errors.full_messages).to include("Cart must exist")
+        expect(@item_cart.errors.full_messages).to include('Cart must exist')
       end
-
     end
-
-
   end
 end
