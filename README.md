@@ -1,5 +1,5 @@
 # アプリケーション名　
-## FoodMarket
+<div><strong>FoodMarket</strong></div>
 
 # アプリケーション概要
 
