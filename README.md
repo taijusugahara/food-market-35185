@@ -24,28 +24,27 @@ FoodMarket
 消費者としてログインすれば商品をカートに入れて購入することができます。 -->
 
 # 制作背景
-わざわざスーパーに行かなくともお家で食品を注文し購入できるようにしました。
-その際商品を一つずつ購入するのはとても手間なので複数の商品を一括で購入できるようにしました。
-またこのアプリケーションを作りたいと思った背景には、プログラミングスクールの最終課題で作ったフリマアプリが関係しています。フリマアプリは個人間で行われるものであり、誰でも商品を出品出来て誰でも商品を購入出来ました。ですので今度は個人間ではなくて企業と消費者間で行われるネットショッピング、つまりは企業は出品できるが購入できず消費者は出品出来ないが購入できるアプリケーションを作りたいと思ったからです。
+<div>わざわざスーパーに行かなくともお家で食品を注文し購入できるようにしました。その際商品を一つずつ購入するのはとても手間なので複数の商品を一括で購入できるようにしました。</div>
+<div>またこのアプリケーションを作りたいと思った背景には、プログラミングスクールの最終課題で作ったフリマアプリが関係しています。フリマアプリは個人間で行われるものであり、誰でも商品を出品出来て誰でも商品を購入出来ました。ですので今度は個人間ではなくて企業と消費者間で行われるネットショッピング、つまりは企業は出品できるが購入できず消費者は出品出来ないが購入できるアプリケーションを作りたいと思ったからです。</div>
 
 # 洗い出した要件
 [スプレッドシート](https://docs.google.com/spreadsheets/d/1w7BKQGipT6zWaOVzTDgcRJs9JfU_LdhtXkQ6hFcuyDY/edit#gid=282075926)
 
 # 実装した機能
-トップページには企業が出品した商品の一覧があります。この際商品は出品時に登録したカテゴリー別に分類しております。
-またトップページには企業のログインページとお客の新規登録ページ・ログインページがあります。
+<div>トップページには企業が出品した商品の一覧があります。この際商品は出品時に登録したカテゴリー別に分類しております。</div>
+<div>またトップページには企業のログインページとお客の新規登録ページ・ログインページがあります。</div>
 [![Image from Gyazo](https://i.gyazo.com/a947c73b4c9f4dd20c6eedf873f68b67.gif)](https://gyazo.com/a947c73b4c9f4dd20c6eedf873f68b67)
 
 見てお分かりの通り企業側には新規登録ページを作っておりません。予めemailとパスワードを設定しているので、そのemailとパスワードでログインしていただきます。このようにした理由は企業の新規登録ページを作ってしまうと誰でも企業として商品を出品できてしまうからです。その状況を防ぐために企業のemailとパスワードは1つだけに設定しました。
 
-[企業]
+<div><strong>[企業]</strong></div>
 そして企業側でログインしますと出品するリンクが現れ、商品を出品できます。
 [![Image from Gyazo](https://i.gyazo.com/743c99d8e7f84a20b5d0612119014278.gif)](https://gyazo.com/743c99d8e7f84a20b5d0612119014278)
 
 出品した商品をクリックしますとその商品の詳細ページに行き、商品を編集または削除できます。
 [![Image from Gyazo](https://i.gyazo.com/6e2307901c9000d8cfec4ac93c6531a3.gif)](https://gyazo.com/6e2307901c9000d8cfec4ac93c6531a3)
 
-[客]
+<div><strong>[客]</strong></div>
 客側でログインしますと出品するリンクがありません。商品をクリックすると編集・削除ではなく、カートに入れるリンクがあります。
 [![Image from Gyazo](https://i.gyazo.com/f5a01b2976ac5678d5ed703b4d83824b.gif)](https://gyazo.com/f5a01b2976ac5678d5ed703b4d83824b)
 
@@ -175,10 +174,10 @@ macOS Big Sur バージョン11.2.2にインストールしたRuby 2.6.5を使�
 
 
 ## コマンド
-% git clone https://github.com/taijusugahara/food-market-35185.git
-% cd food-market-35185
-% bundle install
-% yarn install
-% rails db:create
-% rails db:migrate
-% rails s
+<div>% git clone https://github.com/taijusugahara/food-market-35185.git</div>
+<div>% cd food-market-35185</div>
+<div>% bundle install</div>
+<div>% yarn install</div>
+<div>% rails db:create</div>
+<div>% rails db:migrate</div>
+<div>% rails s</div>
