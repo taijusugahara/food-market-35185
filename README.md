@@ -11,16 +11,17 @@ FoodMarket
 # テスト用アカウント
 <div>
   <div>ログイン機能</div>
-  <div>企業ログイン</div>
+  <div><strong>企業ログイン</strong></div>
   <div>email:　corporation@1234.com</div>
   <div>password:　corporation/corporation1234</div>
-  <div>消費者ログイン</div>
+  <div><strong>消費者ログイン</strong></div>
   <div>email: 1@1</div>
   <div>password: 1a1a1a</div>
 </div>
+<!-- 
 # 利用方法
 企業としてログインすれば商品を出品することができます。
-消費者としてログインすれば商品をカートに入れて購入することができます。
+消費者としてログインすれば商品をカートに入れて購入することができます。 -->
 
 # 制作背景
 わざわざスーパーに行かなくともお家で食品を注文し購入できるようにしました。
